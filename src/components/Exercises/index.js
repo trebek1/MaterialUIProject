@@ -17,6 +17,7 @@ export default ({
 	exercises, 
 	category, 
 	onSelect,
+	onDelete,
 	exercise: {
 		id, 
 		title='Welcome!', 
@@ -25,7 +26,7 @@ export default ({
 	}) => {
 	return (
 		<Grid container sm={12}>  
-			<LeftPane onSelect={onSelect} category={category} exercises={exercises} styles={styles} />
+			<LeftPane onDelete={onDelete} onSelect={onSelect} category={category} exercises={exercises} styles={styles} />
 			<RightPane id={id} title={title} description={description}  exercises={exercises} styles={styles} />
 		</Grid>
 	);

@@ -42,6 +42,12 @@ class App extends Component {
 		}))
 	}
 
+	handleExerciseDelete = id => {
+		this.setState(({exercises}) => ({
+			exercises: exercises.filter(ex => ex.id !== id)
+		}));
+	};
+
 
 
   render() {
@@ -51,7 +57,7 @@ class App extends Component {
     return (
     	<Fragment>
     		<Header muscles={muscles} onExerciseCreate={this.handleExerciseCreate} />
-    			<Exercises exercise={exercise} onSelect={this.handleExerciseSelected} category={category} exercises={exercises} />
+    			<Exercises onDelete={this.handleExerciseDelete} exercise={exercise} onSelect={this.handleExerciseSelected} category={category} exercises={exercises} />
     		<Footer category={category} muscles={muscles} onSelect={this.handleCategorySelected} />
     	</Fragment>
       
