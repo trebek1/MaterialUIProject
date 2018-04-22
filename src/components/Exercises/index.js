@@ -13,11 +13,20 @@ const styles = {
 	}
 }
 
-export default ({ exercises, category }) => {
+export default ({ 
+	exercises, 
+	category, 
+	onSelect,
+	exercise: {
+		id, 
+		title='Welcome!', 
+		description="Please select an exercise from the list on the left"
+	} 
+	}) => {
 	return (
 		<Grid container sm={12}>  
-			<LeftPane category={category} exercises={exercises} styles={styles} />
-			<RightPane exercises={exercises} styles={styles} />
+			<LeftPane onSelect={onSelect} category={category} exercises={exercises} styles={styles} />
+			<RightPane id={id} title={title} description={description}  exercises={exercises} styles={styles} />
 		</Grid>
 	);
 }

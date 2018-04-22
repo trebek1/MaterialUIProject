@@ -1,17 +1,18 @@
 import React from 'react';
 import { Grid, Paper, Typography } from 'material-ui';
 
-export default ({ styles }) => {
+export default ({ styles, id, title, description }) => {
 	return (
 		<Grid item sm={6}>
 			<Paper style={ styles.Paper }>
+
 				<Typography
 					variant="display1"
 				>
-					Welcome!
+					{ title }
 				</Typography>
 				<Typography variant="subheading" style={{marginTop: 20}}>
-					Please select an exercise from the list on the left
+					{ description }
 				</Typography>
 			</Paper>
 		</Grid>

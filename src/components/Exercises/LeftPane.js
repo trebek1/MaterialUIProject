@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Grid, Paper, Typography, List } from 'material-ui';
 import { ListItem, ListItemText } from 'material-ui/List';
 
-export default ({ styles, exercises, category }) => {
+export default ({ styles, exercises, category, onSelect }) => {
     return (
         <Grid item sm={6}>
             <Paper style={styles.Paper}>
@@ -13,9 +13,12 @@ export default ({ styles, exercises, category }) => {
                             { group }
                         </Typography>
                         <List component="ul">
-                            {exercises.map(({ title }, index) =>
-                            <ListItem button key={index}>
-                                <ListItemText primary={ title } />
+                            {exercises.map(({ id, title }, index) =>
+                            <ListItem button key={index} onClick={() => { onSelect(id)}}>
+
+                                <ListItemText 
+                                    primary={ title }
+                                />
                             </ListItem>    
                             )}
                         </List>

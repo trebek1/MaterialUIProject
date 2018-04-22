@@ -6,7 +6,8 @@ import './App.css';
 
 class App extends Component {
 	state = {
-		exercises
+		exercises,
+		exercise: {}
 	}
 
 	handleCategorySelected = category => {
@@ -26,14 +27,21 @@ class App extends Component {
 
 		}, {}));
 	}
+
+	handleExerciseSelected = (id) => {
+		this.setState(({ exercises }) => ({
+			exercise: exercises.find(ex => ex.id === id)
+		}))
+	}
+
   render() {
   	const exercises = this.getExercisesByMuscles(),
-  	{ category } = this.state;
+  	{ category, exercise } = this.state;
 
     return (
     	<Fragment>
     		<Header />
-    			<Exercises category={category} exercises={exercises} />
+    			<Exercises exercise={exercise} onSelect={this.handleExerciseSelected} category={category} exercises={exercises} />
     		<Footer category={category} muscles={muscles} onSelect={this.handleCategorySelected} />
     	</Fragment>
       
