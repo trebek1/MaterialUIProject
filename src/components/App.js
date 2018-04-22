@@ -16,6 +16,15 @@ class App extends Component {
 	}
 
 	getExercisesByMuscles(){
+
+		const initExercises = muscles.reduce((exercises, category) => ({
+			...exercises,
+			[category]: []
+		}), {});
+
+		console.log(initExercises, exercises);
+
+
 		return Object.entries(this.state.exercises.reduce((exercises, exercise) => {
 			const { muscles } = exercise;
 			exercises[muscles] = exercises[muscles] 
@@ -24,7 +33,7 @@ class App extends Component {
 
 				return exercises;
 
-		}, {}));
+		}, initExercises));
 	}
 
 	handleExerciseSelected = (id) => {
