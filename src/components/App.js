@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { Header, Footer } from './Layouts'
 import Exercises from './Exercises';
 import { muscles, exercises } from '../store';
-import './App.css';
 
 class App extends Component {
 	state = {
@@ -34,13 +33,24 @@ class App extends Component {
 		}))
 	}
 
+	handleExerciseCreate = exercise => {
+		this.setState(({ exercises }) => ({
+			exercises: [
+				...exercises, 
+				exercise
+			]
+		}))
+	}
+
+
+
   render() {
   	const exercises = this.getExercisesByMuscles(),
   	{ category, exercise } = this.state;
 
     return (
     	<Fragment>
-    		<Header />
+    		<Header muscles={muscles} onExerciseCreate={this.handleExerciseCreate} />
     			<Exercises exercise={exercise} onSelect={this.handleExerciseSelected} category={category} exercises={exercises} />
     		<Footer category={category} muscles={muscles} onSelect={this.handleCategorySelected} />
     	</Fragment>
