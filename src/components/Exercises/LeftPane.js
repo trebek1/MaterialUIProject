@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Grid, Paper, Typography, List, IconButton } from 'material-ui';
 import { ListItem, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
-import { Delete } from 'material-ui-icons';
+import { Delete, Edit } from 'material-ui-icons';
 
-export default ({ styles, exercises, category, onSelect, onDelete }) => {
+export default ({ styles, exercises, category, onSelect, onDelete, onEdit }) => {
     return (
         <Grid item sm={6}>
             <Paper style={styles.Paper}>
@@ -19,6 +19,9 @@ export default ({ styles, exercises, category, onSelect, onDelete }) => {
 
                                 <ListItemText primary={ title }/>
                                 <ListItemSecondaryAction>
+                                    <IconButton>
+                                        <Edit onClick={()=>{onEdit(id)}} />
+                                    </IconButton>
                                     <IconButton>
                                         <Delete onClick={()=>{onDelete(id)}} />
                                     </IconButton>
