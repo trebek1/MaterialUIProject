@@ -18,18 +18,22 @@ export default ({
 	category, 
 	onSelect,
 	editMode,
-	onDelete,
 	onEdit,
+	onDelete,
+	muscles,
+	onEditSubmit,
+	exercise,
 	exercise: {
 		id, 
 		title='Welcome!', 
 		description="Please select an exercise from the list on the left"
-	} 
+	}
+
 	}) => {
 	return (
 		<Grid container sm={12}>  
-			<LeftPane onEdit={onEdit} onDelete={onDelete} onSelect={onSelect} category={category} exercises={exercises} styles={styles} />
-			<RightPane editMode={editMode} id={id} title={title} description={description}  exercises={exercises} styles={styles} />
+			<LeftPane muscles={muscles} onEdit={onEdit} onDelete={onDelete} onSelect={onSelect} category={category} exercises={exercises} styles={styles} />
+			<RightPane exercise={exercise} onSubmit={onEditSubmit} muscles={muscles} editMode={editMode} id={id} title={title} description={description}  exercises={exercises} styles={styles} />
 		</Grid>
 	);
 }
