@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import Form from './Form';
 
-import { Dialog, Button, TextField, Select } from 'material-ui'; 
+import { Dialog, Button } from 'material-ui'; 
 import {
   DialogContent,
   DialogContentText,
@@ -20,9 +20,17 @@ export default class extends Component {
         });
     }
 
+    handleFormSubmit = exercise => {
+       const { onCreate } = this.props;
+       this.handleToggle();
+
+       onCreate(exercise);
+
+    }
+
     render(){
         const { open } = this.state;
-        const { muscles, onCreate } = this.props;
+        const { muscles } = this.props;
         
         return  <Fragment>
         <Button variant="fab" mini onClick={this.handleToggle}>
@@ -31,16 +39,15 @@ export default class extends Component {
         <Dialog
           open={open}
           onClose={this.handleToggle}
-          aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">
+          <DialogTitle>
             Create a New Exercise 
           </DialogTitle>
           <DialogContent>
           <DialogContentText>
             Please fill out the form below.
           </DialogContentText>
-          <Form muscles={muscles} onSubmit={onCreate} />
+          <Form muscles={muscles} onSubmit={this.handleFormSubmit} />
           </DialogContent>
         </Dialog>
     </Fragment>
