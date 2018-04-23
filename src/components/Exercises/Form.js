@@ -25,6 +25,15 @@ export default withStyles(styles)(class extends Component {
 		}
 	}
 
+	componentWillReceiveProps({ exercise }){
+		if(exercise.title != this.state.title){
+			console.log('here');
+			this.setState({
+				...exercise
+			});
+		}
+	}
+
 	handleChange = name => ({target: { value } }) => {
         this.setState({
             [name]: value   
