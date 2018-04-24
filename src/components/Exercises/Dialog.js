@@ -7,7 +7,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
-import { Add } from 'material-ui-icons';
+import { Add } from '@material-ui/icons';
 
 export default class extends Component {
     state = {

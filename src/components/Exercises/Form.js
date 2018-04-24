@@ -25,11 +25,15 @@ export default withStyles(styles)(class extends Component {
 		}
 	}
 
-	componentWillReceiveProps({ exercise }){
-		this.setState({
-			...exercise
-		});
+	static getDerivedStateFromProps({ exercise }){
+		return exercise || null;
 	}
+
+	// componentWillReceiveProps({ exercise }){
+	// 	this.setState({
+	// 		...exercise
+	// 	});
+	// }
 
 	handleChange = name => ({target: { value } }) => {
         this.setState({
