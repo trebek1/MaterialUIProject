@@ -7,7 +7,7 @@ import { TextField, Select, Button } from 'material-ui';
 
 const styles = theme => ({
     FormControl: {
-        width: 300
+        width: 250
     }
 });
 

@@ -5,8 +5,8 @@ import { Delete, Edit } from '@material-ui/icons';
 
 export default ({ styles, exercises, category, onSelect, onDelete, onEdit }) => {
     return (
-        <Grid item sm={6}>
-            <Paper style={styles.Paper}>
+        <Grid item xs={12} sm={6}>
+            <Paper className={styles}>
                 {exercises.map(([group, exercises], i) =>
                     !category || category === group
                     ? <Fragment key={i}>

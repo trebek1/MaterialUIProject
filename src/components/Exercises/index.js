@@ -2,18 +2,20 @@ import React from 'react';
 import { Grid } from 'material-ui';
 import LeftPane from './LeftPane';
 import RightPane from './RightPane';
+import { withStyles } from 'material-ui/styles';
 
-const styles = {
+// could use media queries using this withStyles approach
+const styles = theme => ({
 	Paper: {
 		padding: 20,
-		marginTop: 10,
-		marginBottom: 10,
+		marginTop: 5,
 		height: 500,
 		overflowY: 'auto'
 	}
-}
+});
 
-export default ({ 
+export default withStyles(styles)(({
+	classes,
 	exercises, 
 	category, 
 	onSelect,
@@ -31,9 +33,9 @@ export default ({
 
 	}) => {
 	return (
-		<Grid container sm={12}>  
-			<LeftPane muscles={muscles} onEdit={onEdit} onDelete={onDelete} onSelect={onSelect} category={category} exercises={exercises} styles={styles} />
-			<RightPane exercise={exercise} onSubmit={onEditSubmit} muscles={muscles} editMode={editMode} id={id} title={title} description={description}  exercises={exercises} styles={styles} />
+		<Grid container>  
+			<LeftPane muscles={muscles} onEdit={onEdit} onDelete={onDelete} onSelect={onSelect} category={category} exercises={exercises} styles={classes.Paper} />
+			<RightPane exercise={exercise} onSubmit={onEditSubmit} muscles={muscles} editMode={editMode} id={id} title={title} description={description}  exercises={exercises} styles={classes.Paper} />
 		</Grid>
 	);
-}
+})

@@ -4,8 +4,8 @@ import Form from './Form';
 
 export default ({ styles, id, title, description, editMode, onSubmit, muscles, exercise }) => {
 	return (
-		<Grid item sm={6}>
-			<Paper style={ styles.Paper }>
+		<Grid item xs={12} sm={6}>
+			<Paper className={ styles }>
 				{
 					(editMode) 
 					?<Form exercise={exercise} onSubmit={onSubmit} muscles={muscles} />
